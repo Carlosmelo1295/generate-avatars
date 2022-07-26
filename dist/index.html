@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de avatar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="root">
+    <h1>Gerador de iniciais</h1>
+
+    <div class="formContainer">
+      <input type="text" , placeholder="Nome" id="nome" , name="nome">
+      <input type="text" , placeholder="Sobrenome" id="sobrenome" , name="sobrenome">
+      <button id="gerador" type="submit">Gerar</button>
+      <button id="apagar">Apagar</button>
+
+    </div>
+
+    <canvas id="avatarFrame"></canvas>
+
+  </div>
+
+  <script type="module" src="/dist/index.js"></script>
+</body>
+
+</html>
