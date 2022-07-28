@@ -3,14 +3,17 @@ const root = document.getElementById("root");
 let nome = document.getElementById('nome');
 let sobrenome = document.getElementById('sobrenome');
 let geradorNome = document.getElementById('gerador');
-geradorNome.addEventListener('click', function exec() {
-    avatar.frame();
-});
+let apagar = document.getElementById('apagar');
+geradorNome.addEventListener('click', () => avatar.frame());
+apagar.addEventListener('click', () => canvasContext?.clearRect(0, 0, width, height));
+let canvas = document.getElementById('avatarFrame');
+let width = canvas.width;
+let height = canvas.height;
+let canvasContext = canvas.getContext('2d');
 let avatar = {
     nome: nome,
     sobrenome: sobrenome,
     frame: () => {
-        let canvas = document.getElementById('avatarFrame');
         let color = "#";
         const letters = '0123456789ABCDEF';
         for (let i = 0; i < 6; i++) {
@@ -19,8 +22,8 @@ let avatar = {
         }
         if (nome.value != "" && sobrenome.value != "") {
             geradorNome.disabled = true;
+            color = '#fff';
         }
-        let canvasContext = canvas.getContext('2d');
         canvasContext.font = '70px roboto';
         canvasContext.textAlign = 'center';
         canvasContext?.fillText(`${nome.value.charAt(0).toUpperCase()} ${sobrenome.value.charAt(0).toUpperCase()}`, 150, 95, 300);

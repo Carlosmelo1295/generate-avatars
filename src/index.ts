@@ -1,23 +1,26 @@
 "use strict";
 const root = document.getElementById("root");
+
 let nome = document.getElementById('nome') as HTMLInputElement;
 let sobrenome = document.getElementById('sobrenome') as HTMLInputElement;
 
-let geradorNome = document.getElementById('gerador') as HTMLButtonElement
+let geradorNome = document.getElementById('gerador') as HTMLButtonElement;
+let apagar = document.getElementById('apagar') as HTMLButtonElement;
 
-geradorNome.addEventListener('click', function exec() {
+geradorNome.addEventListener('click', () => avatar.frame())
+apagar.addEventListener('click', () => canvasContext?.clearRect(0, 0, width, height))
 
-  avatar.frame()
 
-})
-
+let canvas = document.getElementById('avatarFrame') as HTMLCanvasElement;
+let width = canvas.width;
+let height = canvas.height;
+let canvasContext = canvas.getContext('2d');
 
 let avatar = {
   nome: nome,
   sobrenome: sobrenome,
 
   frame: () => {
-    let canvas = document.getElementById('avatarFrame') as HTMLCanvasElement;
     let color = "#"
     const letters = '0123456789ABCDEF';
 
@@ -28,10 +31,10 @@ let avatar = {
 
     if (nome.value != "" && sobrenome.value != "") {
       geradorNome.disabled = true
+
     }
 
 
-    let canvasContext = canvas.getContext('2d');
     canvasContext!.font = '70px roboto';
     canvasContext!.textAlign = 'center';
 
@@ -43,9 +46,6 @@ let avatar = {
   }
 };
 
-// (<HTMLButtonElement>document.getElementById('apagar')).addEventListener('click', () => {
-//   window.removeEventListener("click", avatar.frame)
-// });
 
 
 
